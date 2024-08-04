@@ -1,0 +1,6 @@
+{
+    "sketch": "AquariumNightLight.ino",
+    "output": "build",
+    "board": "arduino:avr:leonardo",
+    "port": "COM8"
+}

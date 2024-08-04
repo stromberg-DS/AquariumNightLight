@@ -1,0 +1,11 @@
+{
+  "additionalFiles": "..\\..\\..,..\\..\\..",
+  "builtInToolsFolders": "",
+  "compiler.optimization_flags": "",
+  "customBuildProperties": "",
+  "fqbn": "arduino:avr:leonardo",
+  "hardwareFolders": "C:\\Users\\Daniel\\AppData\\Local\\Arduino15\\packages,D:\\Users\\Daniel_Data\\Documents\\Arduino\\hardware",
+  "otherLibrariesFolders": "D:\\Users\\Daniel_Data\\Documents\\Arduino\\libraries",
+  "runtime.ide.version": "10607",
+  "sketchLocation": "D:\\Users\\Daniel_Data\\CodeProjects\\AquariumNightLight"
+}

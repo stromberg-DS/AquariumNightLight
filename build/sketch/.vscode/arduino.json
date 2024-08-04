@@ -1,0 +1,7 @@
+#line 1 "D:\\Users\\Daniel_Data\\CodeProjects\\AquariumNightLight\\.vscode\\arduino.json"
+{
+    "sketch": "AquariumNightLight.ino",
+    "output": "build",
+    "board": "arduino:avr:leonardo",
+    "port": "COM8"
+}
