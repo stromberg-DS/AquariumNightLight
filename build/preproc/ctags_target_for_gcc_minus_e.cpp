@@ -10,15 +10,14 @@ Adafruit_DotStar strip(20, 4, 5);
 RTC_DS3231 rtc;
 
 int brightness = 0;
-int increment = 5;
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 unsigned long currentMillis = 0;
 unsigned long lastMillis = 0;
-int switchOnHour = 20;
-int switchOnMinute = 45;
-int switchOffHour = 21;
-int switchOffMinute = 1;
-const int MAX_BRIGHTNESS = 50;
+int switchOnHour = 18;
+int switchOnMinute = 1;
+int switchOffHour = 23;
+int switchOffMinute = 59;
+const int MAX_BRIGHTNESS = 150; //50 was way too dim
 
 
 void setup()
@@ -39,13 +38,13 @@ void setup()
     // When time needs to be set on a new device, or after a power loss, the
     // following line sets the RTC to the date & time this sketch was compiled
     rtc.adjust(DateTime((reinterpret_cast<const __FlashStringHelper *>(
-# 40 "D:\\Users\\Daniel_Data\\CodeProjects\\AquariumNightLight\\AquariumNightLight.ino" 3
+# 39 "D:\\Users\\Daniel_Data\\CodeProjects\\AquariumNightLight\\AquariumNightLight.ino" 3
                        (__extension__({static const char __c[] __attribute__((__progmem__)) = ("Aug  3 2024"); &__c[0];}))
-# 40 "D:\\Users\\Daniel_Data\\CodeProjects\\AquariumNightLight\\AquariumNightLight.ino"
+# 39 "D:\\Users\\Daniel_Data\\CodeProjects\\AquariumNightLight\\AquariumNightLight.ino"
                        )), (reinterpret_cast<const __FlashStringHelper *>(
-# 40 "D:\\Users\\Daniel_Data\\CodeProjects\\AquariumNightLight\\AquariumNightLight.ino" 3
-                                    (__extension__({static const char __c[] __attribute__((__progmem__)) = ("20:34:50"); &__c[0];}))
-# 40 "D:\\Users\\Daniel_Data\\CodeProjects\\AquariumNightLight\\AquariumNightLight.ino"
+# 39 "D:\\Users\\Daniel_Data\\CodeProjects\\AquariumNightLight\\AquariumNightLight.ino" 3
+                                    (__extension__({static const char __c[] __attribute__((__progmem__)) = ("23:31:47"); &__c[0];}))
+# 39 "D:\\Users\\Daniel_Data\\CodeProjects\\AquariumNightLight\\AquariumNightLight.ino"
                                     ))));
     // This line sets the RTC with an explicit date & time, for example to set
     // January 21, 2014 at 3am you would call:
@@ -65,7 +64,7 @@ void loop() {
   int currentHour = now.hour();
   bool isHourRight = ((now.hour()>=switchOnHour)&&(now.hour()<=switchOffHour));
   bool isMinRight = ((now.minute()>=switchOnMinute)&&(now.minute()<switchOffMinute));
-  int increment = MAX_BRIGHTNESS/60;
+  int increment = 3;
 
   if(currentMillis - lastMillis > 1000){
     if(isHourRight && isMinRight){

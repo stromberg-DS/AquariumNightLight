@@ -9,15 +9,13 @@ Adafruit_DotStar strip(NUMPIXELS, DATAPIN, CLOCKPIN);
 RTC_DS3231 rtc;
 
 int brightness = 0;
-int increment = 5;
-char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 unsigned long currentMillis = 0;
 unsigned long lastMillis = 0;
-int switchOnHour = 20;
-int switchOnMinute = 45;
-int switchOffHour = 21;
-int switchOffMinute = 1;
-const int MAX_BRIGHTNESS = 50;
+int switchOnHour = 17;
+int switchOnMinute = 30;
+int switchOffHour = 20;
+int switchOffMinute = 30;
+const int MAX_BRIGHTNESS = 150; //150 seems good
 
 
 void setup()
@@ -56,7 +54,7 @@ void loop() {
   int currentHour = now.hour();
   bool isHourRight = ((now.hour()>=switchOnHour)&&(now.hour()<=switchOffHour));
   bool isMinRight = ((now.minute()>=switchOnMinute)&&(now.minute()<switchOffMinute));
-  int increment = MAX_BRIGHTNESS/60;
+  int increment = 3;
 
   if(currentMillis - lastMillis > 1000){
     if(isHourRight && isMinRight){
@@ -93,52 +91,5 @@ void loop() {
 
   strip.setPixelColor(0, brightness);
   strip.show();                    
-  
-    // Serial.print(now.year(), DEC);
-    // Serial.print('/');
-    // Serial.print(now.month(), DEC);
-    // Serial.print('/');
-    // Serial.print(now.day(), DEC);
-    // Serial.print(" (");
-    // Serial.print(daysOfTheWeek[now.dayOfTheWeek()]);
-    // Serial.print(") ");
-    // Serial.print(now.hour(), DEC);
-    // Serial.print(':');
-    // Serial.print(now.minute(), DEC);
-    // Serial.print(':');
-    // Serial.print(now.second(), DEC);
-    // Serial.println();
-
-    // Serial.print(" since midnight 1/1/1970 = ");
-    // Serial.print(now.unixtime());
-    // Serial.print("s = ");
-    // Serial.print(now.unixtime() / 86400L);
-    // Serial.println("d");
-
-    // // calculate a date which is 7 days, 12 hours, 30 minutes, 6 seconds into the future
-    // DateTime future (now + TimeSpan(7,12,30,6));
-
-    // Serial.print(" now + 7d + 12h + 30m + 6s: ");
-    // Serial.print(future.year(), DEC);
-    // Serial.print('/');
-    // Serial.print(future.month(), DEC);
-    // Serial.print('/');
-    // Serial.print(future.day(), DEC);
-    // Serial.print(' ');
-    // Serial.print(future.hour(), DEC);
-    // Serial.print(':');
-    // Serial.print(future.minute(), DEC);
-    // Serial.print(':');
-    // Serial.print(future.second(), DEC);
-    // Serial.println();
-
-    // Serial.print("Temperature: ");
-    // Serial.print(rtc.getTemperature());
-    // Serial.println(" C");
-
-    // Serial.println();
-    // delay(3000);
-
-
   
 }
